@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
 import Icon from '@material-tailwind/react/Icon';
+import {Heading6} from "@material-tailwind/react";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     const [showSidebar, setShowSidebar] = useState('-left-64');
     return (
         <>
@@ -15,7 +16,7 @@ export default function Sidebar() {
                 className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
             >
                 <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
-
+                    <Heading6 color="gray">{props.name}</Heading6>
                     <div className="flex flex-col">
                         <hr className="my-4 min-w-full" />
                         <ul className="flex-col min-w-full flex list-none">

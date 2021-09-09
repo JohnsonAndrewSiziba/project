@@ -6,6 +6,9 @@ import Footer from 'components/Footer';
 
 import useToken from "./hooks/useToken";
 
+import jwt_decode from "jwt-decode";
+
+
 function DashBoardHome() {
 
     const { token, setToken } = useToken();
@@ -14,9 +17,14 @@ function DashBoardHome() {
         return <Redirect to='/login'  />
     }
 
+
+    const decoded = jwt_decode(token);
+
+    let name = decoded.name
+
     return (
         <>
-            <Sidebar />
+            <Sidebar name={name} />
             <div className="md:ml-64">
                 <Switch>
                     <Route exact path="/" component={Dashboard} />
