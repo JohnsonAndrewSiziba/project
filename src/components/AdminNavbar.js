@@ -7,10 +7,14 @@ import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
 import ProfilePicture from 'assets/img/user-alt-512.png';
 import useToken from "../hooks/useToken";
+import { useHistory } from 'react-router-dom';
+
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
     const { token, setToken } = useToken();
+    let history = useHistory();
+
 
     return (
         <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
@@ -71,15 +75,18 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                 }}
                             >
                                 <DropdownItem color="lightBlue"
-                                    onclick={
+                                >
+                                    <span
+                                    onClick={
                                         () => {
-                                            alert("Hello")
                                             localStorage.removeItem("myProjectToken");
-                                            setToken(null);
+                                            history.push('/login');
+
                                         }
                                     }
-                                >
-                                    Logout
+                                    >
+                                        Logout
+                                    </span>
                                 </DropdownItem>
                             </Dropdown>
                         </div>

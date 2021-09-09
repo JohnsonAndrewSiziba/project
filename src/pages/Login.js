@@ -80,13 +80,7 @@ export default function Login() {
                                     onChange={e => setPassword(e.target.value)}
                                 />
                             </div>
-                            <div className="mb-4 px-4">
-                                <Checkbox
-                                    color="lightBlue"
-                                    text="Remember Me"
-                                    id="remember"
-                                />
-                            </div>
+
                         </CardBody>
                         <CardFooter>
                             <div className="flex flex-col justify-center bg-bb">

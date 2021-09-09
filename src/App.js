@@ -1,8 +1,4 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Sidebar from 'components/Sidebar';
-import Dashboard from 'pages/Dashboard';
-
-import Footer from 'components/Footer';
 
 // Tailwind CSS Style Sheet
 import 'assets/styles/tailwind.css';

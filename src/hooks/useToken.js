@@ -6,8 +6,8 @@ const getToken = () => {
     console.log("_________");
 
     const userToken = JSON.parse(tokenString);
-    console.log(userToken);
-    return userToken;
+    console.log(userToken?.token);
+    return userToken?.token;
     };
     const [token, setToken] = useState(getToken());
 
