@@ -76,6 +76,10 @@ export default function Register() {
 
     const handleRegister = async e => {
         e.preventDefault();
+        if(password.length < 6 || password !== password1) {
+            setShowModalCodeErr(true);
+            return;
+        }
         const data = await registerUser({
             name, phone, email, role, country, password, password1
         });
@@ -210,7 +214,7 @@ export default function Register() {
                                 <InputIcon
                                     type="password"
                                     color="lightBlue"
-                                    placeholder="Password"
+                                    placeholder="Password, 6 - 8 characters"
                                     iconName="lock"
                                     onChange={onChangePassword}
                                     value={password}
@@ -289,6 +293,7 @@ export default function Register() {
                     <ModalBody>
                         <p className="text-base leading-relaxed text-gray-600 font-normal">
                             Please verify that the data you've entered is correct <br />
+                            Password should be between 6 - 8 characters <br />
                             Note that all fields are required.
                         </p>
                     </ModalBody>
